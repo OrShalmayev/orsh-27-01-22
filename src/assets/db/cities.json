@@ -1,0 +1,302 @@
+[
+    {
+        "Version": 1,
+        "Key": "318251",
+        "Type": "City",
+        "Rank": 11,
+        "LocalizedName": "Istanbul",
+        "Country": {
+            "ID": "TR",
+            "LocalizedName": "Turkey"
+        },
+        "AdministrativeArea": {
+            "ID": "34",
+            "LocalizedName": "Istanbul"
+        }
+    },
+    {
+        "Version": 1,
+        "Key": "208194",
+        "Type": "City",
+        "Rank": 21,
+        "LocalizedName": "Isfahan",
+        "Country": {
+            "ID": "IR",
+            "LocalizedName": "Iran"
+        },
+        "AdministrativeArea": {
+            "ID": "04",
+            "LocalizedName": "Esfahan"
+        }
+    },
+    {
+        "Version": 1,
+        "Key": "224032",
+        "Type": "City",
+        "Rank": 21,
+        "LocalizedName": "Incheon",
+        "Country": {
+            "ID": "KR",
+            "LocalizedName": "South Korea"
+        },
+        "AdministrativeArea": {
+            "ID": "28",
+            "LocalizedName": "Incheon"
+        }
+    },
+    {
+        "Version": 1,
+        "Key": "255043",
+        "Type": "City",
+        "Rank": 21,
+        "LocalizedName": "Ibadan",
+        "Country": {
+            "ID": "NG",
+            "LocalizedName": "Nigeria"
+        },
+        "AdministrativeArea": {
+            "ID": "OY",
+            "LocalizedName": "Oyo"
+        }
+    },
+    {
+        "Version": 1,
+        "Key": "318290",
+        "Type": "City",
+        "Rank": 21,
+        "LocalizedName": "Izmir",
+        "Country": {
+            "ID": "TR",
+            "LocalizedName": "Turkey"
+        },
+        "AdministrativeArea": {
+            "ID": "35",
+            "LocalizedName": "İzmir"
+        }
+    },
+    {
+        "Version": 1,
+        "Key": "2333546",
+        "Type": "City",
+        "Rank": 25,
+        "LocalizedName": "Ili Prefecture",
+        "Country": {
+            "ID": "CN",
+            "LocalizedName": "China"
+        },
+        "AdministrativeArea": {
+            "ID": "XJ",
+            "LocalizedName": "Xinjiang"
+        }
+    },
+    {
+        "Version": 1,
+        "Key": "204411",
+        "Type": "City",
+        "Rank": 25,
+        "LocalizedName": "Indore",
+        "Country": {
+            "ID": "IN",
+            "LocalizedName": "India"
+        },
+        "AdministrativeArea": {
+            "ID": "MP",
+            "LocalizedName": "Madhya Pradesh"
+        }
+    },
+    {
+        "Version": 1,
+        "Key": "237597",
+        "Type": "City",
+        "Rank": 25,
+        "LocalizedName": "Iztapalapa",
+        "Country": {
+            "ID": "MX",
+            "LocalizedName": "Mexico"
+        },
+        "AdministrativeArea": {
+            "ID": "CMX",
+            "LocalizedName": "México City"
+        }
+    },
+    {
+        "Version": 1,
+        "Key": "258278",
+        "Type": "City",
+        "Rank": 30,
+        "LocalizedName": "Islamabad",
+        "Country": {
+            "ID": "PK",
+            "LocalizedName": "Pakistan"
+        },
+        "AdministrativeArea": {
+            "ID": "IS",
+            "LocalizedName": "Islamabad"
+        }
+    },
+    {
+        "Version": 1,
+        "Key": "287994",
+        "Type": "City",
+        "Rank": 31,
+        "LocalizedName": "Iasi",
+        "Country": {
+            "ID": "RO",
+            "LocalizedName": "Romania"
+        },
+        "AdministrativeArea": {
+            "ID": "IS",
+            "LocalizedName": "Iași"
+        }
+    },
+    {
+        "Version": 1,
+        "Key": "3214635",
+        "Type": "City",
+        "Rank": 65,
+        "LocalizedName": "Israin Kalan",
+        "Country": {
+            "ID": "IN",
+            "LocalizedName": "India"
+        },
+        "AdministrativeArea": {
+            "ID": "BR",
+            "LocalizedName": "Bihar"
+        }
+    },
+    {
+        "Version": 1,
+        "Key": "3215231",
+        "Type": "City",
+        "Rank": 65,
+        "LocalizedName": "Israin Khurd",
+        "Country": {
+            "ID": "IN",
+            "LocalizedName": "India"
+        },
+        "AdministrativeArea": {
+            "ID": "BR",
+            "LocalizedName": "Bihar"
+        }
+    },
+    {
+        "Version": 1,
+        "Key": "3043775",
+        "Type": "City",
+        "Rank": 75,
+        "LocalizedName": "Israna",
+        "Country": {
+            "ID": "IN",
+            "LocalizedName": "India"
+        },
+        "AdministrativeArea": {
+            "ID": "HR",
+            "LocalizedName": "Haryana"
+        }
+    },
+    {
+        "Version": 1,
+        "Key": "3263346",
+        "Type": "City",
+        "Rank": 75,
+        "LocalizedName": "Isri",
+        "Country": {
+            "ID": "IN",
+            "LocalizedName": "India"
+        },
+        "AdministrativeArea": {
+            "ID": "JH",
+            "LocalizedName": "Jharkhand"
+        }
+    },
+    {
+        "Version": 1,
+        "Key": "2727808",
+        "Type": "City",
+        "Rank": 85,
+        "LocalizedName": "Israel Pinheiro",
+        "Country": {
+            "ID": "BR",
+            "LocalizedName": "Brazil"
+        },
+        "AdministrativeArea": {
+            "ID": "MG",
+            "LocalizedName": "Minas Gerais"
+        }
+    },
+    {
+        "Version": 1,
+        "Key": "3234734",
+        "Type": "City",
+        "Rank": 85,
+        "LocalizedName": "Isra",
+        "Country": {
+            "ID": "IN",
+            "LocalizedName": "India"
+        },
+        "AdministrativeArea": {
+            "ID": "BR",
+            "LocalizedName": "Bihar"
+        }
+    },
+    {
+        "Version": 1,
+        "Key": "3077920",
+        "Type": "City",
+        "Rank": 85,
+        "LocalizedName": "Isra",
+        "Country": {
+            "ID": "IN",
+            "LocalizedName": "India"
+        },
+        "AdministrativeArea": {
+            "ID": "RJ",
+            "LocalizedName": "Rajasthan"
+        }
+    },
+    {
+        "Version": 1,
+        "Key": "3054106",
+        "Type": "City",
+        "Rank": 85,
+        "LocalizedName": "Isra Ka Bas",
+        "Country": {
+            "ID": "IN",
+            "LocalizedName": "India"
+        },
+        "AdministrativeArea": {
+            "ID": "RJ",
+            "LocalizedName": "Rajasthan"
+        }
+    },
+    {
+        "Version": 1,
+        "Key": "1057615",
+        "Type": "City",
+        "Rank": 85,
+        "LocalizedName": "Israel",
+        "Country": {
+            "ID": "MX",
+            "LocalizedName": "Mexico"
+        },
+        "AdministrativeArea": {
+            "ID": "CHP",
+            "LocalizedName": "Chiapas"
+        }
+    },
+    {
+        "Version": 1,
+        "Key": "3419818",
+        "Type": "City",
+        "Rank": 85,
+        "LocalizedName": "Israel",
+        "Country": {
+            "ID": "PH",
+            "LocalizedName": "Philippines"
+        },
+        "AdministrativeArea": {
+            "ID": "ZSI",
+            "LocalizedName": "Zamboanga Sibugay"
+        }
+    }
+]

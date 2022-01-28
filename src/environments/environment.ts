@@ -4,7 +4,18 @@
 
 export const environment = {
   production: false,
-  apiKey: '',
+  apiKey: 'aUfuIOFA5RsY6wC0ODOAVY3FtbVAWKWm',
+  apiUrls: {
+  apiBaseUrl: "http://dataservice.accuweather.com/v1/",
+    cities: {
+        mockUrl: "assets/db/cities.json",
+        autoComplete: "http://dataservice.accuweather.com/locations/v1/cities/autocomplete?apikey=",
+    },
+    weather: {
+        currentCondition: `http://dataservice.accuweather.com/currentconditions/v1/`,
+        forecasts: `http://dataservice.accuweather.com/forecasts/v1/daily/5day/`,
+    }
+  }
 };
 
 /*
