@@ -1,3 +1,4 @@
+import { CityWeather, Weather } from "src/app/shared/models/weather.model";
 
 
 /**
@@ -8,6 +9,7 @@ export const Bookmark : IBookmark = {
     id: "",
     name: "",
     country: "",
+    weather: <Weather>{},
 }
 export const BookmarkInitialState: IBookmarkState = {
     list: [],
@@ -22,6 +24,7 @@ export interface IBookmark {
     id: string;
     name: string;
     country: string;
+    weather: Weather;
 }
  /**
   * Enums

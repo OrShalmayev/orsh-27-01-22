@@ -22,7 +22,9 @@ export class BookmarkPageComponent implements OnInit {
     ngOnInit(): void {
         this.bookmarksList$ = this.store.pipe(select(fromBookmarksSelectors.selectBookmarksList));
     }
-
+    weatherIcon(icon:string|undefined): string {
+        return `https://developer.accuweather.com/sites/default/files/${icon}-s.png`;
+    }
     ngOnDestroy(): void {
         //Called once, before the instance is destroyed.
         //Add 'implements OnDestroy' to the class.

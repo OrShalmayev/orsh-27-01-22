@@ -16,8 +16,8 @@ import * as fromCitiesAction from '../../shared/state';
 import * as fromCitiesSelectors from '../../shared/state';
 
 import { CitiesResponse } from 'src/app/shared/models/city.model';
-import { ApiService } from 'src/app/shared/services/api.service';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
+import { onlyEnglishAndSpaceValidator } from 'src/app/shared/models/custom-validators.validators';
 
 @Component({
   selector: 'home-page',
@@ -50,12 +50,20 @@ export class HomePageComponent implements OnInit {
     ) { }
 
     ngOnInit(): void {
+        // if ("geolocation" in navigator) {
+        //     navigator.geolocation.getCurrentPosition((position) => {
+        //         const latitude = position.coords.latitude;
+        //         const longitude = position.coords.longitude;
+        //         this.store.dispatch(fromHomeActions.loadCurrentWeatherByGeo({ latitude, longitude }));
+        //     });
+        // }
+
         const {cityName} = this.route.snapshot.queryParams;
         const query = cityName ? cityName : defaultCityToLoad;
 
         this.store.dispatch(fromHomeActions.loadCurrentWeather({ query }));
 
-        this.searchControlWithAutocomplete = new FormControl(undefined, [Validators.required, Validators.min(3)]);
+        this.searchControlWithAutocomplete = new FormControl(undefined, [Validators.required, Validators.min(3),  onlyEnglishAndSpaceValidator()]);
         this.searchControlWithAutocomplete.valueChanges
             .pipe(
                 debounceTime(500),
@@ -63,6 +71,8 @@ export class HomePageComponent implements OnInit {
                 takeUntil(this.componentDestroyed$)
             )
             .subscribe((query:any) => {
+                if(!this.searchControlWithAutocomplete.valid) {return;}
+
                 if (query?.length > 2) {
                     this.store.dispatch(fromCitiesAction.loadCities({query}));
                 }
@@ -81,10 +91,12 @@ export class HomePageComponent implements OnInit {
         this.cityWeather$
             .pipe(takeUntil(this.componentDestroyed$))
             .subscribe(value => this.cityWeather = value);
+
         this.cityForecast$ = this.store.pipe(select(fromHomeSelectors.selectForecastWeather));
         this.cityForecast$
             .pipe(takeUntil(this.componentDestroyed$))
             .subscribe(value => this.cityForecast = value);
+
         this.loading$ = this.store.pipe(select(fromHomeSelectors.selectCurrentWeatherLoading));
         this.error$ = this.store.pipe(select(fromHomeSelectors.selectCurrentWeatherError));
     
@@ -115,6 +127,7 @@ export class HomePageComponent implements OnInit {
         bookmark.id = this.cityWeather.city.id;
         bookmark.name = this.cityWeather.city.name;
         bookmark.country = this.cityWeather.city.country;
+        bookmark.weather = this.cityWeather.weather;
         this.store.dispatch(fromHomeActions.toggleBookmark({ entity: bookmark }));
     }
 

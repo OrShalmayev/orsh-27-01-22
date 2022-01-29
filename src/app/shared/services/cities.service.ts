@@ -1,7 +1,7 @@
-import { HttpClient, HttpErrorResponse } from '@angular/common/http';
+import { HttpClient, HttpErrorResponse, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { iif, Observable } from 'rxjs';
-import { catchError, map } from 'rxjs/operators';
+import { catchError, map, toArray } from 'rxjs/operators';
 import { environment } from 'src/environments/environment';
 import { CitiesResponse } from '../models/city.model';
 import { ApiService } from './api.service';
@@ -18,6 +18,21 @@ export class CitiesService {
     getCities(query: string): Observable<CitiesResponse[]> {
         // return this.getMockCities(query);
         return iif(() => (environment.production), this.getCitiesFromApi(query), this.getMockCities(query));
+    }
+    getCitiesByGeo(data: {latitude: number, longitude: number}): Observable<CitiesResponse[]> { 
+        const url = this.apiService.currentConditionByGeoUrl(data);
+        return this.http.get<CitiesResponse>(url)
+        .pipe(
+            catchError((err:HttpErrorResponse, caught$) => {
+                debugger;
+                return caught$;
+            }),
+            toArray(),
+            map(cities => {
+                debugger;
+                return cities;
+            }),
+        );
     }
     private getCitiesFromApi(query: string){
         return this.http.get<CitiesResponse[]>(this.apiService.citiesUrl(query));

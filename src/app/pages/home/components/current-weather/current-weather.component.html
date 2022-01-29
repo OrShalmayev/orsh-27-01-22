@@ -1,31 +1,42 @@
-<div class="card">
-  <div class="card-body">
+<div class="weather-side">
+    <button class="btn bookmark-btn" (click)="onToggleBookmark()">
+        &hearts; {{ isFavorite ? 'Remove from favorites' : 'Add to favorites' }}
+    </button>
+    <div class="date-container">
+        <h2 class="date-dayname">
+            {{ today | date: 'EEEE' }}
+        </h2>
+        <span class="date-day">{{today | date: 'longDate'}}</span>
+        <i class="location-icon" data-feather="map-pin"></i>
+        <span class="location">{{ cityName }}</span>
+    </div>
+    <div class="weather-container"><i class="weather-icon" data-feather="sun"></i>
+        <h1 class="weather-temp">{{cityWeather.weather?.temp}} ˚C</h1>
+        <div class="weather-icon">
+            <img [src]="weatherIcon">
+        </div>
+        <h3 class="weather-desc">{{cityWeather.weather?.description}}</h3>
+    </div>
+</div>
 
-    <h2>{{ cityName }}</h2>
-
-    <shared-detailed-weather [weather]="cityWeather.weather">
-    </shared-detailed-weather>
-
-    {{cityForecast | json}}
-    <div class="card-container d-flex mt-3" *ngIf="cityForecast?.daily">
-        <ng-container *ngFor="let cf of cityForecast?.daily; let i = index ">
-            <button class="card card-small"  [@slideDownUp]="{value:'',params:{animationDelay: i * 500}}">
-                <p>{{cf.date * 1000 | date:'dd/MM/yyyy'}}</p>
+<div class="info-side">
+    <div class="week-container">
+        <ul class="week-list">
+            <ng-container
+                *ngFor="let cf of cityForecast?.daily; let i = index"
+            >
                 <shared-detailed-weather 
-                    [weather]="cf.weather"
+                    [@slideDownUp]="{value:'',params:{animationDelay: (i*1) * 800}}"
+                    [dailyWeather]="cf"
                 >
                 </shared-detailed-weather>
-            </button>
-        </ng-container>
-
+            </ng-container>
+            
+        </ul>
     </div>
-    <div class="card-actions">
-      <button class="btn" (click)="onToggleBookmark()">
-        {{ isFavorite ? 'Remove from favorites' : 'Add to favorites' }}
-      </button>
-      <button class="btn" (click)="onToggleForecast()">
-        5 days forecast
-      </button>
+    <div class="location-container d-flex justify-content-center">
+        <button class="location-button" (click)="onToggleForecast()"> 
+            5 days forecast
+        </button>
     </div>
-  </div>
 </div>

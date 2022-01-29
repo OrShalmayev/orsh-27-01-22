@@ -1,45 +1,39 @@
-<div class="container-fluid">
 
-    <div class="search-container">
+<div class="search-container mb-3">
 
-        <div class="form-group">
-            <label>Search city</label>
-            <input 
-                type="text"
-                matInput
-                [formControl]="searchControlWithAutocomplete"
-                [matAutocomplete]="auto"
-            >
-            <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
-                <mat-option 
-                    *ngFor="let city of cities" [value]="city?.LocalizedName"
-                    (click)="doSearch()"
-                >
-                    {{ city?.LocalizedName }}
-                </mat-option>
-            </mat-autocomplete>
-            <app-error [HTMLType]="'MATERIAL'" [controlName]="searchControlWithAutocomplete"></app-error>            
-        </div>
-    </div>
-
-    <app-loader *ngIf="loading$ | async"></app-loader>
-
-    <div *ngIf="!(loading$ | async) && !(error$ | async) && (cityWeather$ | async) as cityWeather">
-        <home-current-weather
-            [cityWeather]="cityWeather"
-            [cityForecast]="cityForecast"
-            [isFavorite]="isCurrentFavorite$ | async"
-            (toggleBookmark)="onToggleBookmark()"
-            (toggleForecast)="onToggleForecast(cityWeather)"
+    <div class="form-group">
+        <input 
+            placeholder="Search city"
+            type="text"
+            matInput
+            [formControl]="searchControlWithAutocomplete"
+            [matAutocomplete]="auto"
         >
-        </home-current-weather>
-
-        {{cityWeather | json}}
-
-        {{cityForecast$ | async | json}}
+        <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
+            <mat-option 
+                *ngFor="let city of cities" [value]="city?.LocalizedName"
+                (click)="doSearch()"
+            >
+                {{ city?.LocalizedName }}
+            </mat-option>
+        </mat-autocomplete>
+        <app-error [HTMLType]="'MATERIAL'" [controlName]="searchControlWithAutocomplete"></app-error>            
     </div>
-  
-    <div *ngIf="!(loading$ | async) && (error$ | async)">
-        <p>Something went wrong</p>
-    </div>
+</div>
+
+<app-loader *ngIf="loading$ | async"></app-loader>
+
+<div class="weather-container" *ngIf="!(loading$ | async) && !(error$ | async) && (cityWeather$ | async) as cityWeather">
+    <home-current-weather
+        [cityWeather]="cityWeather"
+        [cityForecast]="cityForecast"
+        [isFavorite]="isCurrentFavorite$ | async"
+        (toggleBookmark)="onToggleBookmark()"
+        (toggleForecast)="onToggleForecast(cityWeather)"
+    >
+    </home-current-weather>
+</div>
+
+<div *ngIf="!(loading$ | async) && (error$ | async)">
+    <p>Something went wrong</p>
 </div>

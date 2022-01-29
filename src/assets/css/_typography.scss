@@ -1,0 +1,91 @@
+
+/**
+* HEADLINES
+*/
+h1[class*="-h--1"],h2[class*="-h--1"],h3[class*="-h--1"] {
+    @extend %h--1;
+    font-family: $font-2;
+    font-weight: $fw-extra-bold;
+}
+*[class][class*="-h--2"] {
+    @extend %h--2;
+    font-family: $font-2;
+    font-weight: $fw-extra-bold;
+}
+*[class][class*="-h--3"] {
+    @extend %h--3;
+    font-family: $font-2;
+    font-weight: $fw-extra-bold;
+}
+/**
+* ARTICLE HEADLINES
+*/
+[class*="-ah--1"] {
+    @extend %ah--1;
+    font-family: $font-2 !important;
+
+    line-height: 1.41176;
+    letter-spacing: -0.025em;
+    font-weight: 500 !important;
+}
+*[class][class*="-ah--2"] {
+    @extend %ah--2;
+    font-family: $font-2 !important;
+
+    line-height: 1.41176;
+    letter-spacing: -0.025em;
+    font-weight: 500 !important;
+}
+
+/**
+* PARAGRAPHS
+*/
+p[class*="-p--1"] {
+    @extend %p--1;
+
+    font-weight: 400;
+    line-height: 1.41176;
+    letter-spacing: -0.025em;
+    color: rgb(82, 92, 102);
+}
+p[class*="-p--2"] {
+    @extend %p--2;
+
+    font-weight: 400;
+    line-height: 1.33333;
+    letter-spacing: -0.02em;
+    color: rgb(130, 139, 148);
+}
+p[class*="-p--3"] {
+    @extend %p--3;
+
+    font-weight: 400;
+    line-height: 1.33333;
+    letter-spacing: -0.02em;
+    color: rgb(0, 0, 0);
+}
+
+/**
+* BUTTONS FONT SIZE
+*/
+button[class*="-btn-fs--1"] {
+    @extend %btn-fs--1;
+
+    line-height: 1.41176;
+    letter-spacing: -0.025em;
+    font-weight: 400;
+}
+
+/**
+* Disclaimer
+*/
+p[class*="disclaimer"] {
+    @extend %disclaimer-fs--1;
+    line-height: 1.2;
+}
+
+.disclaimer {
+    &--2 {
+        @extend %disclaimer-fs--2;
+    }
+}

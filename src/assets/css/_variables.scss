@@ -1,0 +1,79 @@
+//===BreakPoints===
+$xxs:375px;
+$xs:576px;
+$sm:768px;
+$md:992px;
+$lg:1024px;
+$xl: 1280px;
+$xxl:1800px;
+
+
+// Bootstrap colors
+$color-primary: #007bff;
+$color-secondary: #6c757d;
+$color-success: #28a745;
+$color-info: #17a2b8;
+$color-warning: #ffc107;
+$color-danger: #dc3545;
+
+$btn-c-1                : rgba(212, 218, 253, 1);
+$btn-c-2                : rgba(204, 204, 209, 1);
+
+$color-blaze-orange-2: #ff68051a;
+$color-bright-turquoise-2: #05f2f217;
+$color-blue-2: #2947f21a;
+
+/**
+* FONTS
+*/
+$he_font: 'Rubik';
+$font-1                 : 'Manrope', $he_font, sans-serif; // << main font (for text elements)
+$font-2                 : 'Epilogue', $he_font, sans-serif; // << secondary font (for headings)
+$font-family-main       : $font-1, $he_font, sans-serif;
+
+/**
+* FONT WEIGHTS
+*/
+$fw-thin                : 100;
+$fw-extra-light         : 200;
+$fw-light               : 300;
+$fw-book                : 350;
+$fw-regular             : 400;
+$fw-medium              : 500;
+$fw-semi-bold           : 600;
+$fw-bold                : 700;
+$fw-extra-bold          : 800;
+$fw-black               : 900;
+
+/*
+    BORDERS 
+*/
+$border--1              : 1px solid #E2E2E2;
+
+
+/**
+* SIZES
+*/
+$borderR--1             : 20px;
+$containers-mt          : 5rem;
+$logo-size--1: 20rem;
+
+//===Font Weights===
+$fw-thin: 100;
+$fw-extra-light: 200;
+$fw-light: 300;
+$fw-book: 350;
+$fw-regular: 400;
+$fw-medium: 500;
+$fw-semi-bold: 600;
+$fw-bold: 700;
+$fw-extra-bold: 800;
+$fw-black: 900;
+
+//===Spaces===
+$fixed-items-unit: 3rem;
+
+//===Colors===
+$primary-color: rgb(6, 102, 235);
+
+

@@ -31,6 +31,22 @@ const reducer = createReducer(
     loading: false,
     error: true,
   })),
+  on(fromHomeActions.loadCurrentWeatherByGeo, (state) => ({
+    ...state,
+    loading: true,
+    error: false,
+  })),
+  on(fromHomeActions.loadCurrentWeatherByGeoSuccess, (state, {entity}) => ({
+    ...state,
+    entity,
+    loading: false,
+    error: false,
+  })),
+  on(fromHomeActions.loadCurrentWeatherByGeoFailed, (state) => ({
+    ...state,
+    loading: false,
+    error: true,
+  })),
   on(fromHomeActions.loadWeatherForecast, state => ({
     ...state,
     loading: true,

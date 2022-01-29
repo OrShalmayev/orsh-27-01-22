@@ -21,7 +21,9 @@ export class HomeEffects {
 
     loadCurrentWeather$ = createEffect(() => this.actions$
         .pipe(
-            ofType(fromHomeActions.loadCurrentWeather),
+            ofType(
+                fromHomeActions.loadCurrentWeather,
+            ),
             switchMap(({query})=>{
                 return this.cityService.getCities(query).pipe(map(cities=>cities[0]));
             }),
@@ -31,6 +33,25 @@ export class HomeEffects {
                 return caught$;
             }),
             map((entity: CityWeather) => fromHomeActions.loadCurrentWeatherSuccess({ entity })),
+        ),
+    );
+
+    loadCurrentWeatherByGeo$ = createEffect(() => this.actions$
+        .pipe(
+            ofType(
+                fromHomeActions.loadCurrentWeatherByGeo
+            ),
+            switchMap(({latitude, longitude})=>{
+                debugger;
+                return this.cityService.getCitiesByGeo({latitude, longitude}).pipe(map(cities=>cities[0]));
+            }),
+            switchMap((city) => this.weatherService.getCityWeather(city)),
+            catchError((err, caught$) => {
+                debugger;
+                this.store.dispatch(fromHomeActions.loadCurrentWeatherByGeoFailed());
+                return caught$;
+            }),
+            map((entity: CityWeather) => fromHomeActions.loadCurrentWeatherByGeoSuccess({ entity })),
         ),
     );
 

@@ -16,7 +16,7 @@ export class CurrentWeatherComponent implements OnInit {
     @Input("isFavorite") isFavorite: boolean | null;
     @Output("toggleBookmark") toggleBookmark = new EventEmitter();
     @Output("toggleForecast") toggleForecast = new EventEmitter();
-
+    today = new Date();
     constructor() { }
 
     ngOnInit(): void {
@@ -29,7 +29,9 @@ export class CurrentWeatherComponent implements OnInit {
     onToggleBookmark() {
         this.toggleBookmark.emit();
     }
-
+    get weatherIcon(): string {
+        return `https://developer.accuweather.com/sites/default/files/${this.cityWeather.weather.icon}-s.png`;
+    }
     onToggleForecast() {
         this.toggleForecast.emit();
     }

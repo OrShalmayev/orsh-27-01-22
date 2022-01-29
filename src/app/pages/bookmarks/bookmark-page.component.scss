@@ -1,0 +1,6 @@
+.weather-side {
+    cursor: pointer;
+    &:not(:last-child){
+        margin-bottom: 2rem;
+    }
+}

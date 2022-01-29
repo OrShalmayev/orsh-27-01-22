@@ -1,15 +1,17 @@
-<div class="weather-details">
-    <div class="weather-icon">
-      <img [src]="weatherIcon">
-      <span>{{ weather.description }}</span>
-    </div>
-  
-    <div class="weather-temp">
-    <ng-container *ngIf="weather?.temp; else minAndMaxTempTemplate">
-        {{ weather.temp }} {{ unitSymbol }}
-    </ng-container>
-    <ng-template #minAndMaxTempTemplate>
-      <h3>{{ weather?.minTemp }} - {{ weather?.maxTemp }} {{ unitSymbol }}</h3>
-    </ng-template>
-    </div>
-</div>
+<li 
+    class="daily-weather" 
+    [ngClass]="{'active': dailyWeather.date*1000 === today.getTime()}"
+>
+    <img [src]="weatherIcon">
+    <span class="day-name">
+        {{ dailyWeather.date*1000 | date: 'EEEE' }}
+    </span>
+    <span class="day-temp">
+        <ng-container *ngIf="dailyWeather?.weather?.temp; else minAndMaxTempTemplate">
+            {{ dailyWeather?.weather?.temp }} {{ unitSymbol }}
+        </ng-container>
+        <ng-template #minAndMaxTempTemplate>
+            <h3>{{dailyWeather?.weather?.minTemp }} - {{ dailyWeather?.weather?.maxTemp }} {{ unitSymbol }}</h3>
+        </ng-template>
+    </span>
+</li>

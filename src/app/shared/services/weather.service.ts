@@ -25,7 +25,13 @@ export class WeatherService {
     getCityWeather(cityResponse: CitiesResponse): Observable<CityWeather> {
         return forkJoin({
             city: of(cityResponse),
-            currentCondition:  iif(()=> (environment.production), this.getCurrentConditions(cityResponse), this.getMockCurrentConditions(cityResponse) ) 
+            currentCondition:  iif(()=> (environment.production), this.getCurrentConditions(cityResponse), this.getMockCurrentConditions(cityResponse) )
+                .pipe(
+                    catchError((err, caught$) => {
+                        debugger;
+                        return caught$;
+                    }),
+                )
         }) 
         .pipe(
             map(({city, currentCondition}) => responseToCityWeather({city, currentCondition}))

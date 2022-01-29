@@ -1,10 +1,321 @@
 /* You can add global styles to this file, and also import other style files */
 
+
+
+/* Importing Bootstrap SCSS file. */
+@import '~bootstrap/scss/bootstrap';
+
+/* Importing Bootstrap SCSS file. */
+@import '~bootstrap/scss/bootstrap';
+@import "assets/css/mixins";
+:root {
+	--gradient: linear-gradient( 135deg, #72EDF2 10%, #5151E5 100%);
+    --bg-c: rgb(60, 70, 83);
+    --bg-c-transparent: rgba(34, 40, 49, 0.753);
+    --bg-c-transparent--2: rgba(34, 40, 49, 0.904);
+    --text-c: #fff;
+    --text-c-weather-top: #fff;
+    --border-r--1: 25px;
+}
+html {
+    & * {
+        --gradient: linear-gradient( 135deg, #72EDF2 10%, #5151E5 100%);
+        --bg-c: rgb(60, 70, 83);
+        --bg-c-transparent: rgba(34, 40, 49, 0.753);
+        --bg-c-transparent--2: rgba(34, 40, 49, 0.904);
+        --text-c: #fff;
+        --text-c-weather-top: #fff;
+        --border-r--1: 25px;
+    }
+    &[data-theme="light"] {
+        & * {
+            --text-c: #000;
+            --text-c-weather-top: var(--text-c);
+            --bg-c: rgb(255, 255, 255);
+            --bg-c-transparent: rgba(255, 255, 255, 0.753);
+            --bg-c-transparent--2: rgba(249, 251, 255, 0.904);
+        }
+    }
+}
 html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+body { 
+    margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif;
+    background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 35%, rgba(0,212,255,1) 100%);
+}
 
-/* Importing Bootstrap SCSS file. */
-@import '~bootstrap/scss/bootstrap';
+* {
+	box-sizing: border-box;
+    &:not(img):not(a) {
+        width: 100%;
+    }
+}
+a {text-decoration: none;}
+body {
+	margin: 0;
+	width: 100%;
+	font-family: 'Montserrat', sans-serif;
+	display: -ms-flexbox;
+}
+app-root {
+    width: 100%;
+}
+.header {
+    min-height: 3rem;
+    background-color: var(--bg-c-transparent);
+    border-radius: var(--border-r--1);
+    display: flex;
+    margin-bottom: 1rem;
+    &-home {
+        color: var(--text-c);
+    }
+    @include respond(lg) {
+        border-radius: initial;
+    }
+}
+.main-container {
+    padding: 2rem;
+	border-radius: var(--border-r--1);
+	box-shadow: 0 0 70px -10px rgba(0, 0, 0, 0.2);
+	background-color: var(--bg-c-transparent--2);
+	color: var(--text-c-weather-top);
+    min-height: 400px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.weather-side {
+    --w: 70%;
+	position: relative;
+	height: 100%;
+    max-width: var(--w);
+    width: var(--w);
+    margin: 0 auto;
+    min-height: 19rem;
+    padding: 2rem;
+    color: var(--text-c-weather-top);
+    font-weight: bold;
+	border-radius: 25px;
+	background-image: 
+        linear-gradient(to bottom, var(--bg-c), rgba(24, 110, 190, 0.329)),
+        url("https://images.unsplash.com/photo-1559963110-71b394e7494d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=675&q=80");
+    transition: transform 300ms ease;
+    background-repeat: no-repeat;
+    background-size: cover;
+	transition: transform 300ms ease;
+    text-align: center;
 
-/* Importing Bootstrap SCSS file. */
-@import '~bootstrap/scss/bootstrap';
+    @include respond(lg){
+        --w: 100%;
+        margin-bottom: 2rem;
+    }
+
+    & .bookmark-btn {
+        position: absolute;
+        top: 7%;
+        right: 2%;
+        max-width: 11rem;
+        font-size: 13px;
+        color: var(--text-c);
+
+        @include respond(lg) {
+            top: 2%;
+            right: -6%;
+        }
+    }
+}
+.weather-gradient {
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+	background-image: var(--gradient);
+	border-radius: 25px;
+	opacity: 0.8;
+}
+.date-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.date-dayname {
+	margin: 0;
+}
+.date-day {
+	display: block;
+}
+.location {
+	display: inline-block;
+	margin-top: 10px;
+}
+.location-icon {
+	display: inline-block;
+	height: 0.8em;
+	width: auto;
+	margin-right: 5px;
+}
+.weather-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    & > *:not(:last-child) {
+        margin-bottom: 1rem;
+    }
+    > :first-child {
+        width: 100%;
+    }
+}
+.weather-icon.feather {
+	height: 60px;
+	width: auto;
+}
+.weather-temp {
+	margin: 0;
+	font-weight: 700;
+	font-size: 4em;
+}
+.weather-desc {
+	margin: 0;
+}
+.info-side {
+    margin-top: 2rem;
+	position: relative;
+	height: 100%;
+    width: 100%;
+}
+.today-info {
+	padding: 15px;
+	margin: 0 25px 25px 25px;
+	border-radius: 10px;
+	>div {
+		&:not(:last-child) {
+			margin: 0 0 10px 0;
+		}
+		.title {
+			float: left;
+			font-weight: 700;
+		}
+		.value {
+			float: right;
+		}
+	}
+}
+.week-list {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+	list-style-type: none;
+	padding: 0;
+	box-shadow: 0 0 50px -5px rgba(0, 0, 0, 0.25);
+	border-radius: 10px;
+    @include respond(lg){
+        margin: 0;
+        flex-flow: row wrap;
+        
+    }
+	&  li.daily-weather {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        padding: 15px;
+		cursor: pointer;
+		transition: 200ms ease;
+		border-radius: 10px;
+		&:hover {
+			transform: scale(1.1);
+			background: var(--text-c);
+			color: var(--bg-c);
+			box-shadow: 0 0 40px -5px rgba(0, 0, 0, 0.2);
+		}
+		.day-name {
+			display: block;
+			margin: 10px 0 0 0;
+			text-align: center;
+		}
+		.day-icon {
+			display: block;
+			height: 30px;
+			width: auto;
+			margin: 0 auto;
+		}
+		.day-temp {
+			display: block;
+			text-align: center;
+			margin: 10px 0 0 0;
+			font-weight: 700;
+		}
+	}
+	>li.active {
+		background: var(--text-c);
+		color: #222831;
+		border-radius: 10px;
+	}
+}
+.location-container {
+	padding: 0 35px;
+}
+.location-button {
+    margin-top: 2rem;
+	outline: none;
+	width: 100%;
+	box-sizing: border-box;
+	border: none;
+	border-radius: 25px;
+	padding: 10px;
+	font-family: 'Montserrat', sans-serif;
+	background-image: var(--gradient);
+	color: var(--text-c);
+	font-weight: 700;
+	box-shadow: 0 0 30px -5px rgba(0, 0, 0, 0.25);
+	cursor: pointer;
+	-o-transition: transform 200ms ease;
+	transition: transform 200ms ease;
+	&:hover {
+		-ms-transform: scale(0.95);
+		transform: scale(0.95);
+	}
+	.feather {
+		height: 1em;
+		width: auto;
+		margin-right: 5px;
+	}
+}
+svg#clouds {
+	position: fixed;
+	bottom: -160px;
+	left: -230px;
+	z-index: -10;
+	width: 1920px;
+}
+.form-group {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    & > * {
+        max-width: 50%;
+        @include respond(lg) {
+            max-width: 100%;
+        }
+    }
+
+    input {
+        padding: 13px;
+        border-radius: var(--border-r--1);
+        background: var(--bg-c);
+        outline: none;
+        border: none;
+        color: var(--text-c);
+        text-indent: 10px;
+        max-width: 50%;
+        margin: 0 auto;
+        @include respond(lg) {
+            max-width: 100%;
+        }
+    }
+}
+
+.mat-slide-toggle-content {
+    color: var(--text-c);
+}

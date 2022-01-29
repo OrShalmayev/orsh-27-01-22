@@ -6,7 +6,5 @@ import { Store } from '@ngrx/store';
 @Injectable()
 export class BookmarkEffect {
     constructor(
-        private actions$: Actions,
-        private store: Store,
     ) {}
 }

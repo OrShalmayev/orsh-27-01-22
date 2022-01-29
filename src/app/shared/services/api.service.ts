@@ -16,7 +16,9 @@ export class ApiService {
     forecastsUrl(cityKey: string):string {
         return `${environment.apiUrls.weather.forecasts}${cityKey}?apikey=${environment.apiKey}&metric=true`;
     }
-
+    currentConditionByGeoUrl(data: {latitude: number, longitude: number}):string {
+        return `${environment.apiUrls.weather.byGeolocation}?apikey=${environment.apiKey}&q=${data.latitude},${data.longitude}`;
+    }
     /**
      * Mock URl
      */

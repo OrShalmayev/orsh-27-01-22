@@ -37,6 +37,7 @@ export class ErrorComponent {
     'required': (params: any) => "This field is required",
     'min': (params: {min:number, actual: number}|null) => "Minimum amount should be " + params?.min,
     'max': (params: {max:number, actual: number}|null) => "Maximum amount should be " + params?.max,
+    'not_english_and_space': (params: any) => params?.message ?? "Only English letters are allowed.",
   };
 
 

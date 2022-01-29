@@ -15,6 +15,22 @@ export const loadCurrentWeatherSuccess = createAction(
 export const loadCurrentWeatherFailed = createAction(
     '[Weather API] Load Current Weather Failed',
 );
+
+// current weather by location
+export const loadCurrentWeatherByGeo = createAction(
+    '[Home] Load Current Weather By Geolocation API',
+    props<{ latitude: number, longitude: number }>(),
+);
+
+export const loadCurrentWeatherByGeoSuccess = createAction(
+    '[Weather API] Load Current Weather By Geolocation API Success',
+    props<{ entity: CityWeather }>(),
+);
+
+export const loadCurrentWeatherByGeoFailed = createAction(
+    '[Weather API] Load Current Weather By Geolocation API Failed',
+);
+
 // forecast
 export const loadWeatherForecast = createAction(
     '[Weather API] Load Weather Forecast',

@@ -1,4 +1,20 @@
-{{bookmarksList$ | async | json}}
-<ng-container *ngFor="let b of (bookmarksList$ | async)">
-    <a [routerLink]="'/'" [queryParams]="{cityName: b?.name}">b?.name</a>
+<!-- {{bookmarksList$ | async | json}} -->
+<ng-container *ngFor="let b of (bookmarksList$ | async); let i = index" >
+    <div class="weather-side" [routerLink]="'/'" [queryParams]="{cityName: b?.name}">
+        <div class="date-container">
+            <h2 class="date-dayname">
+                {{ b.country }}
+            </h2>
+            <i class="location-icon" data-feather="map-pin"></i>
+            <span class="location">{{ b.name }}</span>
+        </div>
+        <div class="weather-container"><i class="weather-icon" data-feather="sun"></i>
+            <h1 class="weather-temp">{{b.weather?.temp}} ˚C</h1>
+            <div class="weather-icon">
+                <img [src]="weatherIcon(b?.weather?.icon)">
+            </div>
+            <h3 class="weather-desc">{{b.weather?.description}}</h3>
+        </div>
+    </div>
+    <!-- <a [routerLink]="'/'" [queryParams]="{cityName: b?.name}">b?.name</a> -->
 </ng-container>
