@@ -1,46 +1,45 @@
 <div class="container-fluid">
 
     <div class="search-container">
-  
-      <div class="form-group">
-        <label>Pesquisar</label>
-        <div>
-          <input class="form-control" [formControl]="searchControl">
-          <button class="btn btn-dark"
-                  [disabled]="!searchControl.valid"
-                  (click)="doSearch()">Search</button>
-        </div>
-      </div>
-  
-      <div class="form-group">
-        <!-- <label>Pesquisar com <i>autocomplete</i></label>
-        <jv-cities-typeahead [formControl]="searchControlWithAutocomplete"></jv-cities-typeahead> -->
-      </div>
-  
-    </div>
-  
-    <app-loader *ngIf="loading$ | async"></app-loader>
-  
-    <div *ngIf="!(loading$ | async) && !(error$ | async) && (cityWeather$ | async) as cityWeather">
-            
-            <home-current-weather
-                [cityWeather]="cityWeather"
-                [cityForecast]="cityForecast"
-                [isFavorite]="isCurrentFavorite$ | async"
-                (toggleBookmark)="onToggleBookmark()"
-                (toggleForecast)="onToggleForecast(cityWeather)"
+
+        <div class="form-group">
+            <label>Search city</label>
+            <input 
+                type="text"
+                matInput
+                [formControl]="searchControlWithAutocomplete"
+                [matAutocomplete]="auto"
             >
-    
-            </home-current-weather>
+            <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
+                <mat-option 
+                    *ngFor="let city of cities" [value]="city?.LocalizedName"
+                    (click)="doSearch()"
+                >
+                    {{ city?.LocalizedName }}
+                </mat-option>
+            </mat-autocomplete>
+            <app-error [HTMLType]="'MATERIAL'" [controlName]="searchControlWithAutocomplete"></app-error>            
+        </div>
+    </div>
 
-            {{cityWeather | json}}
+    <app-loader *ngIf="loading$ | async"></app-loader>
 
-            {{cityForecast$ | async | json}}
+    <div *ngIf="!(loading$ | async) && !(error$ | async) && (cityWeather$ | async) as cityWeather">
+        <home-current-weather
+            [cityWeather]="cityWeather"
+            [cityForecast]="cityForecast"
+            [isFavorite]="isCurrentFavorite$ | async"
+            (toggleBookmark)="onToggleBookmark()"
+            (toggleForecast)="onToggleForecast(cityWeather)"
+        >
+        </home-current-weather>
+
+        {{cityWeather | json}}
+
+        {{cityForecast$ | async | json}}
     </div>
   
     <div *ngIf="!(loading$ | async) && (error$ | async)">
-      <p>Something went wrong</p>
+        <p>Something went wrong</p>
     </div>
-  
-  </div>
-  
+</div>

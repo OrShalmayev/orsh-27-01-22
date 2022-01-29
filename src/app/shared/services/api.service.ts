@@ -29,4 +29,10 @@ export class ApiService {
     mockForecasts():string {
         return `${environment.apiUrls.weather.mockForecasts}`;
     }
+
+    /**
+     * Helpers
+     */
+
+
 }

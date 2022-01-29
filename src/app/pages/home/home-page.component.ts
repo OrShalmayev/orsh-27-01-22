@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
 import { select, Store } from '@ngrx/store';
 import { BehaviorSubject, combineLatest, Observable, Subject } from 'rxjs';
-import { map, takeUntil } from 'rxjs/operators';
+import { debounceTime, distinctUntilChanged, map, takeUntil } from 'rxjs/operators';
 import { CityDailyWeather, CityWeather } from 'src/app/shared/models/weather.model';
 import { Bookmark, IBookmark } from '../bookmarks/models';
 import { defaultCityToLoad } from './models';
@@ -12,6 +12,13 @@ import * as fromHomeSelectors from './state/home.selectors';
 
 import * as fromBookmarksSelectors from '../bookmarks/state/bookmark.selectors';
 
+import * as fromCitiesAction from '../../shared/state';
+import * as fromCitiesSelectors from '../../shared/state';
+
+import { CitiesResponse } from 'src/app/shared/models/city.model';
+import { ApiService } from 'src/app/shared/services/api.service';
+import { ActivatedRoute, Router } from '@angular/router';
+
 @Component({
   selector: 'home-page',
   templateUrl: './home-page.component.html',
@@ -19,6 +26,9 @@ import * as fromBookmarksSelectors from '../bookmarks/state/bookmark.selectors';
 })
 export class HomePageComponent implements OnInit {
     componentDestroyed$ = new Subject<void>();
+
+    cities$: Observable<CitiesResponse[]>;
+    cities:CitiesResponse[] = [];
 
     cityWeather$: Observable<CityWeather>;
     cityWeather: CityWeather;
@@ -32,25 +42,41 @@ export class HomePageComponent implements OnInit {
     bookmarksList$: Observable<IBookmark[]>;
     isCurrentFavorite$: Observable<boolean> = new BehaviorSubject<boolean>(false);
   
-    searchControl: FormControl;
     searchControlWithAutocomplete: FormControl;
   
     constructor(
         private store: Store,
+        private route: ActivatedRoute
     ) { }
 
     ngOnInit(): void {
-        this.searchControl = new FormControl('', Validators.required);
-        this.searchControlWithAutocomplete = new FormControl(undefined);
-        this.store.dispatch(fromHomeActions.loadCurrentWeather({ query: defaultCityToLoad }));
-        // this.searchControlWithAutocomplete.valueChanges
-        //     .pipe(takeUntil(this.componentDestroyed$))
-        //     .subscribe((value:any) => {
-        //         if (!!value) {
-        //             this.store.dispatch(fromHomeActions.loadCurrentWeatherById({id: value.geonameid.toString()}));
-        //         }
-        //     });
-    
+        const {cityName} = this.route.snapshot.queryParams;
+        const query = cityName ? cityName : defaultCityToLoad;
+
+        this.store.dispatch(fromHomeActions.loadCurrentWeather({ query }));
+
+        this.searchControlWithAutocomplete = new FormControl(undefined, [Validators.required, Validators.min(3)]);
+        this.searchControlWithAutocomplete.valueChanges
+            .pipe(
+                debounceTime(500),
+                distinctUntilChanged(),
+                takeUntil(this.componentDestroyed$)
+            )
+            .subscribe((query:any) => {
+                if (query?.length > 2) {
+                    this.store.dispatch(fromCitiesAction.loadCities({query}));
+                }
+            });
+            
+        this.cities$ = this.store.pipe(select(fromCitiesSelectors.selectCitiesList));
+        this.cities$
+            .pipe(takeUntil(this.componentDestroyed$))
+            .subscribe(cities => {
+                this.cities = cities.filter(c => {
+                    return c.LocalizedName.toLowerCase().includes(this.searchControlWithAutocomplete?.value?.toLowerCase());
+                });
+            });
+
         this.cityWeather$ = this.store.pipe(select(fromHomeSelectors.selectCurrentWeather));
         this.cityWeather$
             .pipe(takeUntil(this.componentDestroyed$))
@@ -65,23 +91,18 @@ export class HomePageComponent implements OnInit {
         this.bookmarksList$ = this.store.pipe(select(fromBookmarksSelectors.selectBookmarksList));
     
         this.isCurrentFavorite$ = combineLatest([this.cityWeather$, this.bookmarksList$])
-          .pipe(
-            map(([current, bookmarksList]) => {
-              if (!!current) {
-                return bookmarksList.some(bookmark => bookmark.id === current.city.id);
-              }
-              return false;
-            }),
-          );
-    
-        // this.unit$ = this.store.pipe(select(fromConfigSelectors.selectUnitConfig));
-    
-        // this.setupPortal();
-    
+            .pipe(
+                map(([current, bookmarksList]) => {
+                    if (Boolean(current)) {
+                        return bookmarksList.some(bookmark => bookmark.id === current.city.id);
+                    }
+                    return false;
+                }),
+            );
     }
 
     doSearch() {
-        const query = this.searchControl.value;
+        const query = this.searchControlWithAutocomplete.value;
         this.store.dispatch(fromHomeActions.loadCurrentWeather({ query }));
     }
 

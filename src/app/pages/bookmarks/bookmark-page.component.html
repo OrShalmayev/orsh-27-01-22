@@ -1,1 +1,4 @@
-<p>favorite-page works!</p>
+{{bookmarksList$ | async | json}}
+<ng-container *ngFor="let b of (bookmarksList$ | async)">
+    <a [routerLink]="'/'" [queryParams]="{cityName: b?.name}">b?.name</a>
+</ng-container>

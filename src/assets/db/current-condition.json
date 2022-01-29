@@ -21,5 +21,52 @@
       },
       "MobileLink": "http://www.accuweather.com/en/il/tel-aviv/215854/current-weather/215854?lang=en-us",
       "Link": "http://www.accuweather.com/en/il/tel-aviv/215854/current-weather/215854?lang=en-us"
-    }
+    },
+        {
+          "LocalObservationDateTime": "2022-01-29T18:42:00+02:00",
+          "EpochTime": 1643474520,
+          "WeatherText": "Mostly cloudy",
+          "WeatherIcon": 38,
+          "HasPrecipitation": false,
+          "PrecipitationType": null,
+          "IsDayTime": false,
+          "Temperature": {
+            "Metric": {
+              "Value": 13.3,
+              "Unit": "C",
+              "UnitType": 17
+            },
+            "Imperial": {
+              "Value": 56,
+              "Unit": "F",
+              "UnitType": 18
+            }
+          },
+          "MobileLink": "http://www.accuweather.com/en/il/ramat-gan/215849/current-weather/215849?lang=en-us",
+          "Link": "http://www.accuweather.com/en/il/ramat-gan/215849/current-weather/215849?lang=en-us"
+        },
+
+            {
+                "LocalObservationDateTime": "2022-01-29T18:42:00+02:00",
+                "EpochTime": 1643474520,
+                "WeatherText": "Mostly cloudy",
+                "WeatherIcon": 38,
+                "HasPrecipitation": false,
+                "PrecipitationType": null,
+                "IsDayTime": false,
+                "Temperature": {
+                    "Metric": {
+                        "Value": 12.2,
+                        "Unit": "C",
+                        "UnitType": 17
+                    },
+                    "Imperial": {
+                        "Value": 54,
+                        "Unit": "F",
+                        "UnitType": 18
+                    }
+                },
+                "MobileLink": "http://www.accuweather.com/en/il/haifa/213181/current-weather/213181?lang=en-us",
+                "Link": "http://www.accuweather.com/en/il/haifa/213181/current-weather/213181?lang=en-us"
+            }
 ]

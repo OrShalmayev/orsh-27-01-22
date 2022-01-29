@@ -313,5 +313,306 @@
             "ID": "ZSI",
             "LocalizedName": "Zamboanga Sibugay"
         }
-    }
+    },
+        {
+          "Version": 1,
+          "Key": "57465",
+          "Type": "City",
+          "Rank": 15,
+          "LocalizedName": "Haidian District",
+          "Country": {
+            "ID": "CN",
+            "LocalizedName": "China"
+          },
+          "AdministrativeArea": {
+            "ID": "BJ",
+            "LocalizedName": "Beijing"
+          }
+        },
+        {
+          "Version": 1,
+          "Key": "58633",
+          "Type": "City",
+          "Rank": 21,
+          "LocalizedName": "Haikou",
+          "Country": {
+            "ID": "CN",
+            "LocalizedName": "China"
+          },
+          "AdministrativeArea": {
+            "ID": "HI",
+            "LocalizedName": "Hainan"
+          }
+        },
+        {
+          "Version": 1,
+          "Key": "59604",
+          "Type": "City",
+          "Rank": 23,
+          "LocalizedName": "Haimen District",
+          "Country": {
+            "ID": "CN",
+            "LocalizedName": "China"
+          },
+          "AdministrativeArea": {
+            "ID": "JS",
+            "LocalizedName": "Jiangsu"
+          }
+        },
+        {
+          "Version": 1,
+          "Key": "57670",
+          "Type": "City",
+          "Rank": 23,
+          "LocalizedName": "Haicheng",
+          "Country": {
+            "ID": "CN",
+            "LocalizedName": "China"
+          },
+          "AdministrativeArea": {
+            "ID": "LN",
+            "LocalizedName": "Liaoning"
+          }
+        },
+        {
+          "Version": 1,
+          "Key": "2332589",
+          "Type": "City",
+          "Rank": 25,
+          "LocalizedName": "Haizhu District",
+          "Country": {
+            "ID": "CN",
+            "LocalizedName": "China"
+          },
+          "AdministrativeArea": {
+            "ID": "GD",
+            "LocalizedName": "Guangdong"
+          }
+        },
+        {
+          "Version": 1,
+          "Key": "2333281",
+          "Type": "City",
+          "Rank": 25,
+          "LocalizedName": "Haidong",
+          "Country": {
+            "ID": "CN",
+            "LocalizedName": "China"
+          },
+          "AdministrativeArea": {
+            "ID": "QH",
+            "LocalizedName": "Qinghai"
+          }
+        },
+        {
+          "Version": 1,
+          "Key": "213181",
+          "Type": "City",
+          "Rank": 31,
+          "LocalizedName": "Haifa",
+          "Country": {
+            "ID": "IL",
+            "LocalizedName": "Israel"
+          },
+          "AdministrativeArea": {
+            "ID": "HA",
+            "LocalizedName": "Haifa"
+          }
+        },
+        {
+          "Version": 1,
+          "Key": "353511",
+          "Type": "City",
+          "Rank": 31,
+          "LocalizedName": "Haiphong",
+          "Country": {
+            "ID": "VN",
+            "LocalizedName": "Vietnam"
+          },
+          "AdministrativeArea": {
+            "ID": "HP",
+            "LocalizedName": "Haiphong"
+          }
+        },
+        {
+          "Version": 1,
+          "Key": "58175",
+          "Type": "City",
+          "Rank": 33,
+          "LocalizedName": "Haifeng County",
+          "Country": {
+            "ID": "CN",
+            "LocalizedName": "China"
+          },
+          "AdministrativeArea": {
+            "ID": "GD",
+            "LocalizedName": "Guangdong"
+          }
+        },
+        {
+          "Version": 1,
+          "Key": "60195",
+          "Type": "City",
+          "Rank": 33,
+          "LocalizedName": "Hailaer District",
+          "Country": {
+            "ID": "CN",
+            "LocalizedName": "China"
+          },
+          "AdministrativeArea": {
+            "ID": "NM",
+            "LocalizedName": "Inner Mongolia"
+          }
+        },
+
+            {
+              "Version": 1,
+              "Key": "206734",
+              "Type": "City",
+              "Rank": 41,
+              "LocalizedName": "Ramadi",
+              "Country": {
+                "ID": "IQ",
+                "LocalizedName": "Iraq"
+              },
+              "AdministrativeArea": {
+                "ID": "AN",
+                "LocalizedName": "Anbar"
+              }
+            },
+            {
+              "Version": 1,
+              "Key": "215835",
+              "Type": "City",
+              "Rank": 45,
+              "LocalizedName": "Ramat Aviv",
+              "Country": {
+                "ID": "IL",
+                "LocalizedName": "Israel"
+              },
+              "AdministrativeArea": {
+                "ID": "TA",
+                "LocalizedName": "Tel Aviv"
+              }
+            },
+            {
+              "Version": 1,
+              "Key": "215849",
+              "Type": "City",
+              "Rank": 45,
+              "LocalizedName": "Ramat Gan",
+              "Country": {
+                "ID": "IL",
+                "LocalizedName": "Israel"
+              },
+              "AdministrativeArea": {
+                "ID": "TA",
+                "LocalizedName": "Tel Aviv"
+              }
+            },
+            {
+              "Version": 1,
+              "Key": "188749",
+              "Type": "City",
+              "Rank": 45,
+              "LocalizedName": "Ramanagaram",
+              "Country": {
+                "ID": "IN",
+                "LocalizedName": "India"
+              },
+              "AdministrativeArea": {
+                "ID": "KA",
+                "LocalizedName": "Karnataka"
+              }
+            },
+            {
+              "Version": 1,
+              "Key": "196827",
+              "Type": "City",
+              "Rank": 45,
+              "LocalizedName": "Ramagundam",
+              "Country": {
+                "ID": "IN",
+                "LocalizedName": "India"
+              },
+              "AdministrativeArea": {
+                "ID": "TG",
+                "LocalizedName": "Telangana"
+              }
+            },
+            {
+              "Version": 1,
+              "Key": "321545",
+              "Type": "City",
+              "Rank": 45,
+              "LocalizedName": "Raman",
+              "Country": {
+                "ID": "TH",
+                "LocalizedName": "Thailand"
+              },
+              "AdministrativeArea": {
+                "ID": "95",
+                "LocalizedName": "Yala"
+              }
+            },
+            {
+              "Version": 1,
+              "Key": "191833",
+              "Type": "City",
+              "Rank": 55,
+              "LocalizedName": "Ramachandrapuram",
+              "Country": {
+                "ID": "IN",
+                "LocalizedName": "India"
+              },
+              "AdministrativeArea": {
+                "ID": "AP",
+                "LocalizedName": "Andhra Pradesh"
+              }
+            },
+            {
+              "Version": 1,
+              "Key": "2875604",
+              "Type": "City",
+              "Rank": 55,
+              "LocalizedName": "Ramanattukara",
+              "Country": {
+                "ID": "IN",
+                "LocalizedName": "India"
+              },
+              "AdministrativeArea": {
+                "ID": "KL",
+                "LocalizedName": "Kerala"
+              }
+            },
+            {
+              "Version": 1,
+              "Key": "190781",
+              "Type": "City",
+              "Rank": 55,
+              "LocalizedName": "Ramanathapuram",
+              "Country": {
+                "ID": "IN",
+                "LocalizedName": "India"
+              },
+              "AdministrativeArea": {
+                "ID": "TN",
+                "LocalizedName": "Tamil Nadu"
+              }
+            },
+            {
+              "Version": 1,
+              "Key": "1278801",
+              "Type": "City",
+              "Rank": 55,
+              "LocalizedName": "Ramallah",
+              "Country": {
+                "ID": "PS",
+                "LocalizedName": "Palestine"
+              },
+              "AdministrativeArea": {
+                "ID": "WE",
+                "LocalizedName": "West Bank"
+              }
+            }
 ]
