@@ -24,12 +24,10 @@ export class CitiesService {
         return this.http.get<CitiesResponse>(url)
         .pipe(
             catchError((err:HttpErrorResponse, caught$) => {
-                debugger;
                 return caught$;
             }),
             toArray(),
             map(cities => {
-                debugger;
                 return cities;
             }),
         );

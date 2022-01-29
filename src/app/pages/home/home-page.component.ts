@@ -50,13 +50,13 @@ export class HomePageComponent implements OnInit {
     ) { }
 
     ngOnInit(): void {
-        // if ("geolocation" in navigator) {
-        //     navigator.geolocation.getCurrentPosition((position) => {
-        //         const latitude = position.coords.latitude;
-        //         const longitude = position.coords.longitude;
-        //         this.store.dispatch(fromHomeActions.loadCurrentWeatherByGeo({ latitude, longitude }));
-        //     });
-        // }
+        if ("geolocation" in navigator) {
+            navigator.geolocation.getCurrentPosition((position) => {
+                const latitude = position.coords.latitude;
+                const longitude = position.coords.longitude;
+                this.store.dispatch(fromHomeActions.loadCurrentWeatherByGeo({ latitude, longitude }));
+            });
+        }
 
         const {cityName} = this.route.snapshot.queryParams;
         const query = cityName ? cityName : defaultCityToLoad;

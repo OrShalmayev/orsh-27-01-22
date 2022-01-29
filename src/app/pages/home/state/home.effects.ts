@@ -42,12 +42,10 @@ export class HomeEffects {
                 fromHomeActions.loadCurrentWeatherByGeo
             ),
             switchMap(({latitude, longitude})=>{
-                debugger;
                 return this.cityService.getCitiesByGeo({latitude, longitude}).pipe(map(cities=>cities[0]));
             }),
             switchMap((city) => this.weatherService.getCityWeather(city)),
             catchError((err, caught$) => {
-                debugger;
                 this.store.dispatch(fromHomeActions.loadCurrentWeatherByGeoFailed());
                 return caught$;
             }),
@@ -70,19 +68,4 @@ export class HomeEffects {
             })
         ),
     );
-
-    // loadCurrentWeatherById$ = createEffect(() => this.actions$
-    //     .pipe(
-    //         ofType(fromHomeActions.loadCurrentWeatherById),
-    //         mergeMap(({ id }: { id: string }) =>
-    //             this.weatherService.getCityWeatherById(id)
-    //         ),
-    //         catchError((err, caught$) => {
-    //             this.store.dispatch(fromHomeActions.loadCurrentWeatherFailed());
-    //             return caught$;
-    //         }),
-    //         map((entity: CityWeather) => fromHomeActions.loadCurrentWeatherSuccess({entity})),
-    //     )
-    // );
-
 }

@@ -17,6 +17,7 @@ export class CurrentWeatherComponent implements OnInit {
     @Output("toggleBookmark") toggleBookmark = new EventEmitter();
     @Output("toggleForecast") toggleForecast = new EventEmitter();
     today = new Date();
+    
     constructor() { }
 
     ngOnInit(): void {

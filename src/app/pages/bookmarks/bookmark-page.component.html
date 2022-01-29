@@ -1,20 +1,29 @@
-<!-- {{bookmarksList$ | async | json}} -->
-<ng-container *ngFor="let b of (bookmarksList$ | async); let i = index" >
-    <div class="weather-side" [routerLink]="'/'" [queryParams]="{cityName: b?.name}">
-        <div class="date-container">
-            <h2 class="date-dayname">
-                {{ b.country }}
-            </h2>
-            <i class="location-icon" data-feather="map-pin"></i>
-            <span class="location">{{ b.name }}</span>
-        </div>
-        <div class="weather-container"><i class="weather-icon" data-feather="sun"></i>
-            <h1 class="weather-temp">{{b.weather?.temp}} ˚C</h1>
-            <div class="weather-icon">
-                <img [src]="weatherIcon(b?.weather?.icon)">
+<h2 class="text-center">Bookmarks</h2>
+<ng-container *ngIf="(bookmarksList$ | async)?.length; then thenTemplate; else elseTemplate"></ng-container>
+<ng-template #thenTemplate>
+    <ng-container *ngFor="let b of (bookmarksList$ | async) as bookmarksList; let i = index" >
+        <div class="weather-side" [routerLink]="'/'" [queryParams]="{cityName: b?.name}">
+            <div class="date-container">
+                <h2 class="date-dayname">
+                    {{ b.country }}
+                </h2>
+                <i class="location-icon" data-feather="map-pin"></i>
+                <span class="location">{{ b.name }}</span>
             </div>
-            <h3 class="weather-desc">{{b.weather?.description}}</h3>
+            <div class="weather-container"><i class="weather-icon" data-feather="sun"></i>
+                <h1 class="weather-temp">{{b.weather?.temp}} ˚C</h1>
+                <div class="weather-icon">
+                    <img [src]="weatherIcon(b?.weather?.icon)">
+                </div>
+                <h3 class="weather-desc">{{b.weather?.description}}</h3>
+            </div>
         </div>
-    </div>
-    <!-- <a [routerLink]="'/'" [queryParams]="{cityName: b?.name}">b?.name</a> -->
-</ng-container>
+    </ng-container>
+</ng-template>
+<ng-template #elseTemplate>
+    <p>
+        No bookmarks yet.
+    </p>
+</ng-template>
+
+

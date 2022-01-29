@@ -28,7 +28,6 @@ export class WeatherService {
             currentCondition:  iif(()=> (environment.production), this.getCurrentConditions(cityResponse), this.getMockCurrentConditions(cityResponse) )
                 .pipe(
                     catchError((err, caught$) => {
-                        debugger;
                         return caught$;
                     }),
                 )

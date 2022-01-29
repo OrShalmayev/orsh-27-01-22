@@ -8,14 +8,7 @@ import { MatSlideToggleChange } from '@angular/material/slide-toggle';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-    title = 'orsh-weather';
-    searchControlWithAutocomplete!: FormControl;
     lightTheme = false
-    ngOnInit(): void {
-        //Called after the constructor, initializing input properties, and the first call to ngOnChanges.
-        //Add 'implements OnInit' to the class.
-        this.searchControlWithAutocomplete = new FormControl(undefined);
-    }
 
     handleThemeChange(e: MatSlideToggleChange){
         this.lightTheme = e.checked;

@@ -28,7 +28,6 @@ export class CityEffect {
                         return c.LocalizedName.toLowerCase().indexOf(query.toLowerCase()) > -1
                     });
                 }
-                debugger;
                 return iif(()=> citiesFound?.length > 0, of(citiesFound), this.cityService.getCities(query));
             }),
             catchError((err, caught$) => {
@@ -36,7 +35,6 @@ export class CityEffect {
                 return caught$;
             }),
             map((list: CitiesResponse[]) => {
-                debugger;
                 return fromCitiesActions.loadCitiesSuccess({ list })
             }),
         ),
