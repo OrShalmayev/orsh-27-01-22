@@ -1,8 +1,6 @@
 import { createAction, props } from '@ngrx/store';
-import { CitiesResponse } from 'src/app/shared/models/city.model';
 import { CityDailyWeather, CityWeather } from 'src/app/shared/models/index.models';
-
-// import { Bookmark } from 'src/app/shared/models/bookmark.model';
+import { IBookmark } from '../../bookmarks/models';
 
 export const loadCurrentWeather = createAction(
     '[Home] Load Current Weather',
@@ -29,9 +27,9 @@ export const loadWeatherForecastSuccess = createAction(
 export const loadWeatherForecastFailed = createAction(
     '[Weather API] Load Weather Forecast Failed',
 );
-// export const toggleBookmark = createAction(
-//   '[Home] Toggle Bookmark',
-//   props<{ entity: Bookmark }>(),
-// );
+export const toggleBookmark = createAction(
+  '[Home] Toggle Bookmark',
+  props<{ entity: IBookmark }>(),
+);
 
 export const clearHomeState = createAction('[Home] Clear Home State');

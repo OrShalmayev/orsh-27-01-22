@@ -3,12 +3,13 @@ import { Component } from "@angular/core";
 @Component({
   selector: 'app-loader',
   template: `
-    <div class="box">
+  <p class="loader">Loading...</p>
+    <!-- <div class="box">
         <div class="loader"></div>
-    </div>
+    </div> -->
   `,
   styles:[`
-    .loader {
+    /* .loader {
         border-radius: 50%;
         box-shadow: inset 0 0 0 .1em red, -.5em -.5em 0 -.4em red, 0 -.7em 0 -.4em red, .5em -.5em 0 -.4em red, -.5em .5em 0 -.4em red, 0 .7em 0 -.4em red, .5em .5em 0 -.4em red, -.7em 0 0 -.4em red, .7em 0 0 -.4em red;
         animation: 5s loader linear infinite;
@@ -21,7 +22,7 @@ import { Component } from "@angular/core";
         100% {
             transform: rotate(360deg);
         }
-    }
+    } */
   
   `]
 })

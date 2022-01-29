@@ -23,7 +23,6 @@ export class CitiesTypeheadComponent implements OnInit {
             });
         }),
         map(({query, cities}) => {
-            debugger;
             return query.length < 2 ? []
                 : cities.filter(v => v.Type?.toLowerCase().indexOf(query.toLowerCase()) > -1).slice(0, 10)
         })

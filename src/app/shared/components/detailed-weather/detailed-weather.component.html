@@ -1,0 +1,15 @@
+<div class="weather-details">
+    <div class="weather-icon">
+      <img [src]="weatherIcon">
+      <span>{{ weather.description }}</span>
+    </div>
+  
+    <div class="weather-temp">
+    <ng-container *ngIf="weather?.temp; else minAndMaxTempTemplate">
+        {{ weather.temp }} {{ unitSymbol }}
+    </ng-container>
+    <ng-template #minAndMaxTempTemplate>
+      <h3>{{ weather?.minTemp }} - {{ weather?.maxTemp }} {{ unitSymbol }}</h3>
+    </ng-template>
+    </div>
+</div>

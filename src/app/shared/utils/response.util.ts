@@ -35,7 +35,7 @@ export function responseToCityWeather(data: IResponseToCityWeather): CityWeather
     },
     weather: {
       description: currentCondition?.WeatherText,
-      icon: currentCondition?.WeatherIcon,
+      icon: currentCondition?.WeatherIcon.toString(),
       temp: currentCondition?.Temperature?.Metric?.Value,
     },
   }
@@ -58,7 +58,7 @@ export function responseToCityDailyWeather(data: IResponseToCityDailyWeather): C
         date: d?.EpochDate,
         weather: {
             description: d?.Day?.IconPhrase,
-            icon: d?.Day?.Icon,
+            icon: d?.Day?.Icon < 10 ? `0${d?.Day?.Icon}` : d?.Day?.Icon?.toString(),
             minTemp: d?.Temperature?.Minimum?.Value,
             maxTemp: d?.Temperature?.Maximum?.Value,
         }

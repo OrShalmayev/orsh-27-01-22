@@ -10,13 +10,23 @@ export class ApiService {
     citiesUrl(query:string):string {
         return `${environment.apiUrls.cities.autoComplete}${environment.apiKey}&q=${query}`;
     }
-    mockCitiesUrl():string {
-        return `${environment.apiUrls.cities.mockUrl}`;
-    }
     currentConditionUrl(cityKey: string):string {
         return `${environment.apiUrls.weather.currentCondition}${cityKey}?apikey=${environment.apiKey}`;
     }
     forecastsUrl(cityKey: string):string {
         return `${environment.apiUrls.weather.forecasts}${cityKey}?apikey=${environment.apiKey}&metric=true`;
+    }
+
+    /**
+     * Mock URl
+     */
+    mockCitiesUrl():string {
+        return `${environment.apiUrls.cities.mockUrl}`;
+    }
+    mockCurrentConditionUrl():string {
+        return `${environment.apiUrls.weather.mockCurrentCondition}`;
+    }
+    mockForecasts():string {
+        return `${environment.apiUrls.weather.mockForecasts}`;
     }
 }

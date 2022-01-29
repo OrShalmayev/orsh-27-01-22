@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  apiKey: 'aUfuIOFA5RsY6wC0ODOAVY3FtbVAWKWm',
+  apiKey: 'ItHczBnBAjcPcjRSCeS4AqcbLGDFAHvq',
   apiUrls: {
   apiBaseUrl: "http://dataservice.accuweather.com/v1/",
     cities: {
@@ -13,7 +13,9 @@ export const environment = {
     },
     weather: {
         currentCondition: `http://dataservice.accuweather.com/currentconditions/v1/`,
+        mockCurrentCondition: "assets/db/current-condition.json",
         forecasts: `http://dataservice.accuweather.com/forecasts/v1/daily/5day/`,
+        mockForecasts: "assets/db/forecast-5-day.json",
     }
   }
 };

@@ -1,0 +1,31 @@
+<div class="card">
+  <div class="card-body">
+
+    <h2>{{ cityName }}</h2>
+
+    <shared-detailed-weather [weather]="cityWeather.weather">
+    </shared-detailed-weather>
+
+    {{cityForecast | json}}
+    <div class="card-container d-flex mt-3" *ngIf="cityForecast?.daily">
+        <ng-container *ngFor="let cf of cityForecast?.daily; let i = index ">
+            <button class="card card-small"  [@slideDownUp]="{value:'',params:{animationDelay: i * 500}}">
+                <p>{{cf.date * 1000 | date:'dd/MM/yyyy'}}</p>
+                <shared-detailed-weather 
+                    [weather]="cf.weather"
+                >
+                </shared-detailed-weather>
+            </button>
+        </ng-container>
+
+    </div>
+    <div class="card-actions">
+      <button class="btn" (click)="onToggleBookmark()">
+        {{ isFavorite ? 'Remove from favorites' : 'Add to favorites' }}
+      </button>
+      <button class="btn" (click)="onToggleForecast()">
+        5 days forecast
+      </button>
+    </div>
+  </div>
+</div>

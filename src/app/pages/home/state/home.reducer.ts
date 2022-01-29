@@ -1,14 +1,7 @@
 import { createReducer, Action, on } from '@ngrx/store'
-import { CityDailyWeather, CityWeather } from 'src/app/shared/models/index.models';
+import { HomeState } from '../models';
 
 import * as fromHomeActions from './home.actions';
-
-export interface HomeState {
-  entity: any;
-  forecast: any;
-  loading: boolean;
-  error: boolean;
-}
 
 export const homeInitialState: HomeState = {
   entity: undefined,
@@ -57,5 +50,5 @@ const reducer = createReducer(
 );
 
 export function homeReducer(state: HomeState | undefined, action: Action): HomeState {
-  return reducer(state, action);
+    return reducer(state, action);
 }

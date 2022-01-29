@@ -1,6 +1,6 @@
 import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RouterModule } from '@angular/router';
@@ -13,7 +13,7 @@ import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
 import { environment } from 'src/environments/environment';
 import { HomeModule } from './pages/home/home.module';
-import { StoreRouterConnectingModule } from '@ngrx/router-store';
+import { BookmarkModule } from './pages/bookmarks/bookmark.module';
 
 @NgModule({
     declarations: [
@@ -26,7 +26,9 @@ import { StoreRouterConnectingModule } from '@ngrx/router-store';
         RouterModule,
         FormsModule,
         SharedModule,
+        // Modules
         HomeModule,
+        BookmarkModule,
         AppRoutingModule,
         // External modules
         NgbModule,
@@ -34,7 +36,6 @@ import { StoreRouterConnectingModule } from '@ngrx/router-store';
         StoreModule.forRoot([]),
         StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production }),
         EffectsModule.forRoot([]),
-        StoreRouterConnectingModule.forRoot(),
     ],
     providers: [],
     bootstrap: [AppComponent]
