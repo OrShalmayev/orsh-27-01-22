@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  apiKey: 'ItHczBnBAjcPcjRSCeS4AqcbLGDFAHvq',
+  apiKey: 'aUfuIOFA5RsY6wC0ODOAVY3FtbVAWKWm',
   apiUrls: {
   apiBaseUrl: "http://dataservice.accuweather.com/v1/",
     cities: {

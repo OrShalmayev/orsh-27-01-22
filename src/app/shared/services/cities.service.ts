@@ -1,6 +1,6 @@
 import { HttpClient, HttpErrorResponse, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { iif, Observable } from 'rxjs';
+import { EMPTY, iif, Observable } from 'rxjs';
 import { catchError, map, toArray } from 'rxjs/operators';
 import { environment } from 'src/environments/environment';
 import { CitiesResponse } from '../models/city.model';
@@ -24,7 +24,7 @@ export class CitiesService {
         return this.http.get<CitiesResponse>(url)
         .pipe(
             catchError((err:HttpErrorResponse, caught$) => {
-                return caught$;
+                return EMPTY;
             }),
             toArray(),
             map(cities => {

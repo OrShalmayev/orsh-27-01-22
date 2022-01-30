@@ -1,7 +1,7 @@
 import { Injectable } from "@angular/core";
 
 import { Actions, createEffect, ofType } from '@ngrx/effects';
-import { map, mergeMap, catchError, switchMap, first } from 'rxjs/operators';
+import { map, mergeMap, catchError, switchMap, first, take } from 'rxjs/operators';
 import { Store } from '@ngrx/store';
 
 import { WeatherService } from 'src/app/shared/services/weather.service';
@@ -50,6 +50,7 @@ export class HomeEffects {
                 return caught$;
             }),
             map((entity: CityWeather) => fromHomeActions.loadCurrentWeatherByGeoSuccess({ entity })),
+            take(1),
         ),
     );
 
