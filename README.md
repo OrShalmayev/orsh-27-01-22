@@ -18,5 +18,6 @@ A user can click on the start next to the city and add it to the favorites
 ### Responsive
 
 We can find this app responsive across all of the relevant platforms
+
 ![image](https://user-images.githubusercontent.com/46129649/151689399-7193fabf-5c0e-40d5-bc49-f9989abaf72b.png)
 
