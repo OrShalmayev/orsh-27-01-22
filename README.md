@@ -1,7 +1,9 @@
 # OrshWeather
+Demo: [click here](https://weather-app-or-30-01-22.herokuapp.com/)
 
 app that allows us to search for the weather in a specific city, and add to favorites.
-Demo: [click here](https://weather-app-or-30-01-22.herokuapp.com/)
+
+
 
 ### Weather Screen
 
