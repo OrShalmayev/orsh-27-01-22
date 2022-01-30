@@ -12,7 +12,7 @@ export const environment = {
           mockCurrentCondition: "assets/db/current-condition.json",
           forecasts: `http://dataservice.accuweather.com/forecasts/v1/daily/5day/`,
           mockForecasts: "assets/db/forecast-5-day.json",
-          byGeolocation: `http://dataservice.accuweather.com/locations/v1/cities/geoposition/search?q=`,
+          byGeolocation: `http://dataservice.accuweather.com/locations/v1/cities/geoposition/search`,
       }
     }
 };
