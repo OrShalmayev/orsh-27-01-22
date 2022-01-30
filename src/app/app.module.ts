@@ -16,10 +16,12 @@ import { HomeModule } from './pages/home/home.module';
 import { BookmarkModule } from './pages/bookmarks/bookmark.module';
 
 import {MatSlideToggleModule} from '@angular/material/slide-toggle';
+import { HeaderComponent } from './header/header.component';
 
 @NgModule({
     declarations: [
         AppComponent,
+        HeaderComponent,
     ],
     imports: [
         BrowserModule,
