@@ -24,7 +24,8 @@ export class BookmarkPageComponent implements OnInit {
     }
     
     weatherIcon(icon:string|undefined): string {
-        return `https://developer.accuweather.com/sites/default/files/${icon}-s.png`;
+        const iconNumber = +<string>icon >= 10 ? <string>icon : `0${icon}`;
+        return `https://developer.accuweather.com/sites/default/files/${iconNumber}-s.png`;
     }
 
     ngOnDestroy(): void {
