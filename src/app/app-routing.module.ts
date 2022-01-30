@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { BookmarkPageComponent } from './pages/bookmarks/bookmark-page.component';
 import { HomePageComponent } from './pages/home/home-page.component';
 
 const routes: Routes = [

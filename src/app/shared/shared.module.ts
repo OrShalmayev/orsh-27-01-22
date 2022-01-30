@@ -6,7 +6,6 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { LoaderComponent } from './components/loader/loader.component';
 import { DetailedWeatherComponent } from './components/detailed-weather/detailed-weather.component';
 import { ErrorComponent } from './components/error/error.component';
-
 // MATERIAL
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatAutocompleteModule} from '@angular/material/autocomplete';
