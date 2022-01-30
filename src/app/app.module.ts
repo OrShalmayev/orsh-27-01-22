@@ -15,7 +15,6 @@ import { environment } from 'src/environments/environment';
 import { HomeModule } from './pages/home/home.module';
 import { BookmarkModule } from './pages/bookmarks/bookmark.module';
 
-import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 import { HeaderComponent } from './header/header.component';
 
 @NgModule({
@@ -36,7 +35,6 @@ import { HeaderComponent } from './header/header.component';
         AppRoutingModule,
         // External modules
         NgbModule,
-        MatSlideToggleModule,
         // NGRX
         StoreModule.forRoot([]),
         StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production }),
