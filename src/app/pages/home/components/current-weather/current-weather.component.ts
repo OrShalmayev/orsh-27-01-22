@@ -31,8 +31,7 @@ export class CurrentWeatherComponent implements OnInit {
         this.toggleBookmark.emit();
     }
     get weatherIcon(): string {
-        const iconNumber = +this.cityWeather.weather.icon >= 10 ? this.cityWeather.weather.icon : `0${this.cityWeather.weather.icon}`;
-        return `https://developer.accuweather.com/sites/default/files/${iconNumber}-s.png`;
+        return `https://developer.accuweather.com/sites/default/files/${this.cityWeather.weather.icon}-s.png`;
     }
     onToggleForecast() {
         this.toggleForecast.emit();

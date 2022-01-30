@@ -35,7 +35,7 @@ export function responseToCityWeather(data: IResponseToCityWeather): CityWeather
     },
     weather: {
       description: currentCondition?.WeatherText,
-      icon: currentCondition?.WeatherIcon.toString(),
+      icon: currentCondition?.WeatherIcon < 10 ? `0${currentCondition?.WeatherIcon}` : currentCondition?.WeatherIcon?.toString(),
       temp: currentCondition?.Temperature?.Metric?.Value,
     },
   }

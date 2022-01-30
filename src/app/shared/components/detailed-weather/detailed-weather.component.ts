@@ -15,8 +15,7 @@ export class DetailedWeatherComponent implements OnInit {
     today = new Date();
     constructor() { }
     get weatherIcon(): string {
-        const iconNumber = +this.dailyWeather.weather.icon >= 10 ? this.dailyWeather.weather.icon : `0${this.dailyWeather.weather.icon}`;
-        return `https://developer.accuweather.com/sites/default/files/${iconNumber}-s.png`;
+        return `https://developer.accuweather.com/sites/default/files/${this.dailyWeather.weather.icon}-s.png`;
     }
     get unitSymbol(): string {
         return unitToSymbol(Units.Metric);
