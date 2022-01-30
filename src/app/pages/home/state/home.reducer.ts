@@ -1,13 +1,15 @@
 import { createReducer, Action, on } from '@ngrx/store'
+import { CityDailyWeather, CityWeather, DailyWeather } from 'src/app/shared/models/weather.model';
 import { HomeState } from '../models';
 
 import * as fromHomeActions from './home.actions';
 
 export const homeInitialState: HomeState = {
-  entity: undefined,
-  forecast: undefined,
-  loading: false,
-  error: false,
+    entity: undefined,
+    forecast: undefined,
+    geoLocationWeather: undefined,
+    loading: false,
+    error: false
 }
 
 const reducer = createReducer(
@@ -38,7 +40,7 @@ const reducer = createReducer(
   })),
   on(fromHomeActions.loadCurrentWeatherByGeoSuccess, (state, {entity}) => ({
     ...state,
-    entity,
+    geoLocationWeather: entity,
     loading: false,
     error: false,
   })),

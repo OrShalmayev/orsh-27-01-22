@@ -19,3 +19,7 @@ export const selectForecastWeather = createSelector(
     selectHomeState,
     (homeState: HomeState) => homeState.forecast,
 );
+export const selectGeolocationWeather = createSelector(
+    selectHomeState,
+    (homeState: HomeState) => homeState.geoLocationWeather,
+);

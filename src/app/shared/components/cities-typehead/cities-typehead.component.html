@@ -1,9 +1,0 @@
-<input 
-id="typeahead-basic" type="text" class="form-control" [(ngModel)]="model" [ngbTypeahead]="search"/>
-
-
-<!-- <div *ngIf="loading">Carregando</div> -->
-
-<ng-template let-item="item" #itemTemplate>
-  <span>{{ item.name }}, {{ item.country }}</span>
-</ng-template>
